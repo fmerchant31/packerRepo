@@ -12,8 +12,7 @@ pipeline{
                   }
             }
          }
-      
-         stage('Packer'){
+         stage('Creating Packer Image'){
              steps{
                  script{
                        sh "packer build packer-image.json"
@@ -21,6 +20,15 @@ pipeline{
              }
 
         } 
+         stage('Creating Instance using Packer Image'){
+              steps{
+                   script{
+                        aws ec2 run-instances --image-id "{{ ImageId }}" --count 1 --instance-type t2.micro 
+                   } 
+              }
+         }
+          
+          
 
      }
 }
