@@ -1,0 +1,25 @@
+{
+	"builders": 
+	[
+	       {
+			"type": "amazon-ebs",
+			"ami_name": "packer-image1",
+			"region": "ap-south-1",
+			"instance_type": "t2.micro",
+			"access_key": "AKIARPOJZUQWKZQJJCZX",
+			"secret_key": "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",
+			"associate_public_ip_address": "true",
+			"source_ami_filter": {	
+				"filters": {
+              					"virtualization-type": "hvm",
+              					"root-device-type": "ebs"			                              
+				},
+				"owners": "amazon",
+				"most_recent": "true"
+			},
+			"ssh_username": "root"	
+			
+		}
+	]
+
+}
