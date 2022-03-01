@@ -3,7 +3,7 @@
 	[
 	       {
 			"type": "amazon-ebs",
-			"ami_name": "packer-image1",
+			"ami_name": "packer-image-new",
 			"region": "ap-south-1",
 			"instance_type": "t2.micro",
 			"access_key": "AKIARPOJZUQWKZQJJCZX",
