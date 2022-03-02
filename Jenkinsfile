@@ -23,7 +23,9 @@ pipeline{
          stage('Creating Template using Packer Image'){
               steps{
                    script{
-                	sh "aws ec2 create-launch-template  --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data 'ImageId=ami-0851b76e8b1bce90b' "
+                	sh "aws ec2 describe-images --region ap-south-1 --query 'reverse(sort_by(Images,&CreationDate))[:1].{ImageId:ImageId}' --output json > aws.json"
+			sh "jq '.[]' aws.json > aws-output.json"
+			sh "aws ec2 create-launch-template --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data file://aws-output.json"
                    } 
               }
          }
