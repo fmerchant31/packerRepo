@@ -16,14 +16,5 @@
 			"ssh_username": "ubuntu"	
 			
 		}
-	],
-	"provisioners": [
-		{
-			"type": "file",
- 			"content": "Hello World",
-  			"target": "husain"
-	
-		}
 	]
 }
-dummy_artifact
