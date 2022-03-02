@@ -21,9 +21,8 @@
 		{
 			"type": "shell",
 			"inline": [
-				"echo 'Installing Nginx'",
-				"sudo apt update",
-				"sudo apt install nginx -y"
+				"echo 'Creating folder",
+				"mkdir husain"
 			]
 	
 		}
