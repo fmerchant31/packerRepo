@@ -19,12 +19,11 @@
 	],
 	"provisioners": [
 		{
-			"type": "shell",
-			"inline": [
-				"echo 'Creating folder",
-				"mkdir husain"
-			]
+			"type": "file",
+ 			"content": "Hello World",
+  			"target": "husain"
 	
 		}
 	]
 }
+dummy_artifact
