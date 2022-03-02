@@ -13,7 +13,7 @@
 			"access_key": "AKIARPOJZUQWKZQJJCZX",
 			"secret_key": "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",
 			"associate_public_ip_address": "true",
-			"ssh_username": "root"	
+			"ssh_username": "ubuntu"	
 			
 		}
 	],
