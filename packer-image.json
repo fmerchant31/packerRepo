@@ -5,7 +5,6 @@
 			"type": "amazon-ebs",
 			"ami_name": "packer-image-new",
 			"region": "ap-south-1",
-			"source_ami": "{{user `ami_id`}}",
 			"instance_type": "t2.micro",
 			"access_key": "AKIARPOJZUQWKZQJJCZX",
 			"secret_key": "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",
