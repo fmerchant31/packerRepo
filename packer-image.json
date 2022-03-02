@@ -16,5 +16,13 @@
 			"ssh_username": "ubuntu"	
 			
 		}
+	],
+	"provisioners": [
+		{
+			"type": "file",
+			"source": "./husain",
+			"destination": "/home/ubuntu"
+		
+		}
 	]
 }
