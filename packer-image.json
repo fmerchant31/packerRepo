@@ -1,25 +1,31 @@
 {
+	"variables": {
+   		 "ami_id": "ami-0851b76e8b1bce90b"
+     	},
 	"builders": 
 	[
 	       {
 			"type": "amazon-ebs",
 			"ami_name": "packer1",
 			"region": "ap-south-1",
+			"source_ami": "{{user `ami_id`}}",
 			"instance_type": "t2.micro",
 			"access_key": "AKIARPOJZUQWKZQJJCZX",
 			"secret_key": "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",
 			"associate_public_ip_address": "true",
-			"source_ami_filter": {	
-				"filters": {
-              					"virtualization-type": "hvm",
-              					"root-device-type": "ebs"			                              
-				},
-				"owners": "amazon",
-				"most_recent": "true"
-			},
 			"ssh_username": "root"	
 			
 		}
+	],
+	"provisioners": [
+		{
+			"type": "shell",
+			"inline": [
+				"echo 'Installing Nginx'",
+				"sudo apt update",
+				"sudo apt install nginx -y"
+			]
+	
+		}
 	]
-
 }

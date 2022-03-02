@@ -20,15 +20,13 @@ pipeline{
              }
 
         } 
-         stage('Creating Instance using Packer Image'){
+         stage('Creating Template using Packer Image'){
               steps{
                    script{
-                       sh "aws ec2 run-instances --image-id "{{ ImageId }}" --count 1 --instance-type t2.micro"
+                       sh "aws ec2 create-launch-template  --launch-template-name LaunchTemplate1 --version-description V1.0.0  --launch-template-da			     ta "ImageId=ami-0851b76e8b1bce90b"
                    } 
               }
          }
           
-          
-
      }
 }
