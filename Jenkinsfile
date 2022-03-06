@@ -16,10 +16,10 @@ pipeline{
               steps{
                    script{
 
-                	sh "AMI_ID=$(aws ec2 describe-images --region ap-south-1 --query 'reverse(sort_by(Images,&CreationDate))[:1].{ImageId:ImageId}' --output text)"
+                	sh '''AMI_ID=$(aws ec2 describe-images --region ap-south-1 --query 'reverse(sort_by(Images,&CreationDate))[:1].{ImageId:ImageId}' --output text)'''
 			sh "echo $AMI_ID"
 
-			sh "aws ec2 create-launch-template --launch-template-name $params.templatename --version-description $params.version --launch-template-data ImageId="$AMI_ID""
+			//sh "aws ec2 create-launch-template --launch-template-name $params.templatename --version-description $params.version --launch-template-data ImageId="$AMI_ID""
 
                    } 
               }
