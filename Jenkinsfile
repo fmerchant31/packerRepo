@@ -27,8 +27,8 @@ pipeline{
 				//)
 			abc = sh (
 				script: "aws ec2 describe-launch-templates --query 'reverse(sort_by(LaunchTemplates,&CreateTime))[:1].LaunchTemplateId' --output text"
-				script: '"echo ID : ${abc}"'
 				)
+			echo "ID : ${abc}"
                    } 
               } 
          }
