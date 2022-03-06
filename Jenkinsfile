@@ -23,7 +23,7 @@ pipeline{
 				) 
 			   
 			sh (
-				script: "aws ec2 create-launch-template --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data ImageId='${AMI_ID}'"
+				script: "aws ec2 create-launch-template --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data ImageId=${AMI_ID}'"
 				)
                    } 
               } 
