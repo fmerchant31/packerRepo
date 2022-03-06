@@ -25,8 +25,7 @@ pipeline{
 			//echo "ID : ${AMI_ID}"
 			   
 			sh (
-				script: "aws ec2 create-launch-template --launch-template-name $params.TemplateName 
-				--version-description $params.Version --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
+				script: "aws ec2 create-launch-template --launch-template-name $params.TemplateName --version-description $params.Version --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
 			)
 			
                    } 
