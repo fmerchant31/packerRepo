@@ -18,14 +18,15 @@ pipeline{
 
                 	//sh '''AMI_ID=$(aws ec2 describe-images --region ap-south-1 --query 'reverse(sort_by(Images,&CreationDate))[:1].{ImageId:ImageId}' --output text)'''
 			
-			AMI_ID = sh ( 
-				script: "aws ec2 describe-images --region ap-south-1 --query 'reverse(sort_by(Images,&CreationDate))[:1].{ImageId:ImageId}' --output text",
-				returnStdout: true
-			).trim()
-			echo "ID : ${AMI_ID}"
+			//AMI_ID = sh ( 
+				//script: "aws ec2 describe-images --region ap-south-1 --query 'reverse(sort_by(Images,&CreationDate))[:1].{ImageId:ImageId}' --output text",
+				//returnStdout: true
+			//).trim()
+			//echo "ID : ${AMI_ID}"
 			   
 			sh (
-				script: "aws ec2 create-launch-template --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data ImageId='${AMI_ID}'"
+				script: "aws ec2 create-launch-template --launch-template-name $params.TemplateName 
+				--version-description $params.Version --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
 			)
 			
                    } 
