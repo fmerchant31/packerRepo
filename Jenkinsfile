@@ -23,7 +23,7 @@ pipeline{
 				returnStatus = true
 				) == 0
 			   
-			echo "${AMI_ID}"	   
+			sh '''aws ec2 create-launch-template --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data ImageId="$AMI_ID"'''	   
                    } 
               } 
          }
