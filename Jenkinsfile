@@ -26,8 +26,9 @@ pipeline{
 				//script: "aws ec2 create-launch-template --launch-template-name LaunchTemplate1 --version-description V1.0.0 --launch-template-data ImageId=${AMI_ID}"
 				//)
 			abc = sh (
-				script: "aws ec2 describe-launch-templates --query 'reverse(sort_by(LaunchTemplates,&CreateTime))[:1].LaunchTemplateId' --output text"
-			)
+				script: "aws ec2 describe-launch-templates --query 'reverse(sort_by(LaunchTemplates,&CreateTime))[:1].LaunchTemplateId' --output text",
+				returnStdout: true
+			).trim()
 			echo "ID : ${abc}"
                    } 
               } 
