@@ -24,13 +24,13 @@ pipeline{
 			//).trim()
 			//echo "ID : ${AMI_ID}"
 			   
-			   if(params.Version == '1.0.0'){
+			   if(params.LTVersion == '1.0.0'){
 			   	sh (
-					script: "aws ec2 create-launch-template --launch-template-name $params.TemplateName --version-description $params.Version --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
+					script: "aws ec2 create-launch-template --launch-template-name $params.TemplateName --version-description $params.LTVersion --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
 				)
 			   }
 			   else{
-			   	echo "Modifying Template!!!"
+			   		script: "aws ec2 create-launch-template-version --launch-template-id $params.LTID --version-description $params.MLTVersion --source-version $params.MLTSVersion  --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
 			   }
 			  
                    } 
