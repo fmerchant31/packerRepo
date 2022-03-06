@@ -30,7 +30,9 @@ pipeline{
 				)
 			   }
 			   else{
+				sh(
 			   		script: "aws ec2 create-launch-template-version --launch-template-id $params.LTID --version-description $params.MLTVersion --source-version $params.MLTSVersion  --launch-template-data ImageId='ami-055c00a757e3e4e4c'"
+				)   
 			   }
 			  
                    } 
