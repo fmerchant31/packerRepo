@@ -34,22 +34,7 @@ pipeline{
 			}  
                    } 
               } 
-         }
-	 stage('Creating Auto Scaling group using LT'){
-		 steps{
-			 script{
-			 	
-				 LAUNCH_TEMPLATE = sh(
-				 	script: "aws ec2 describe-launch-templates --query 'reverse(sort_by(LaunchTemplates,&CreateTime))[:1].LaunchTemplateId' --output text)",
-					 returnStdout: true
-				 ).trim()
-				 echo "Launch Template Id: ${LAUNCH_TEMPLATE}"
-				 
-				 
-			 
-			 }		 
-		 }    
-	 }
+         } 
           
      }
 }
